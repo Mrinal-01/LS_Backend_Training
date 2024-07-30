@@ -1,0 +1,16 @@
+html, body { height: 100%; padding: 0; margin: 0; }
+div { width: 50%; height: 50%; float: left;text-align: center;}
+#div1 { background:red;
+    
+    line-height: 450px; }
+#div2 { background:green;
+    line-height: 450px;}
+#div3 { background: blue; 
+    line-height: 450px;}
+#div4 { background:aqua; 
+    line-height: 450px;}
+button{
+    border-radius: 5px;
+
+}
+

@@ -1,0 +1,146 @@
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+      }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f4f4f4;
+        position: relative;
+        width: 100%;
+      }
+
+      .nav-container {
+        position: relative;
+      }
+
+      .hamburger {
+        font-size: 30px;
+        cursor: pointer;
+      }
+      
+      
+
+
+
+      #nav-menu.hidden {
+        display: none;
+      }
+
+      #nav-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background: linear-gradient(to right, #89cac0, #d4a3d0);
+        border-radius: 5px;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #nav-menu ul li {
+        padding: 20px;
+        width: 150px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      #nav-menu ul li:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .top-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .coin-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        background: transparent;
+      }
+
+      #date {
+        font-size: 18px;
+      }
+
+      /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            background-image: url(./Images/Texture.jpg);
+        } */
+      .container {
+        background: #fff;
+        padding: 20px;
+        /* border-radius: 10px; */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        background-image: url(/images/Texture.jpg);
+        width: 100%;
+        flex-grow: 1;
+      }
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        object-position: 0.5px 0.5px;
+        
+      }
+      .info {
+        margin: 10px 0;
+        color: antiquewhite;
+      }
+      .log-out {
+        cursor: pointer;
+        margin-top: 20px;
+        width: 100px;
+        min-height: 50px;
+        border-radius: 10px;
+        border-color: aqua;
+        color: rgb(174, 46, 46);
+        
+      }
+      .log-out:hover {
+        background-color: rgb(175, 133, 184);
+      }
+      header {
+        background-color: skyblue;
+      }
+    .container h2{
+      padding-top: 20px;
+      /* text-align: center;
+      background-clip: text;
+      color: transparent;
+      margin: 0 auto;
+      width: fit-content;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: radial-gradient(#e66465, #9198e5); */
+    }
+    .game-link{
+      text-decoration: none;
+      color: hwb(0 0% 100%);
+    }

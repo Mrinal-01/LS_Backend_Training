@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin and Navigation Example</title>
+    <link rel="stylesheet" href="stylesheets/main.css" />
+    
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <nav id="nav-menu" class="hidden menu-class">
+          <ul>
+            <li>Games</li>
+            <li><a rel="stylesheet" href="/ronaldo" target="_blank" class="game-link">Moving Head</a></li>
+             <!-- <li onclick="location.href='../MovingHead/index.html'">Moving Head</li> -->
+            <li><a rel="stylesheet" href="/TrafficLight" target="_blank" class="game-link">Traffic Light</a></li>
+            <li><a rel="stylesheet" href="/colorswap" target="_blank" class="game-link">Color Swap</a></li>
+            <li><a rel="stylesheet" href="/scratch" target="_blank" class="game-link">Scratch Card</a></li>
+            <li><a rel="stylesheet" href="../Shopping Cart/index.html" target="_blank" class="game-link">BuyMe</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="top-right">
+        <img src="./images/coin.gif" alt="Coin Icon" class="coin-icon"/>
+        <span class="coint-count" id="coin" style="width: 100px">100</span>
+        <span id="date"></span>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Welcome To the Gaming World</h2>
+      <img
+        src=<%= image %>
+        alt="Profile Image"
+        class="profile-img"
+        id="profileImage"
+      />
+      <div class="info" id="username">Username: <%= username %></div>
+      <div class="info" id="email">Email: <%= email %></div>
+      <div class="info" id="loginDate">Login Date: 2024-07-05</div>
+      <div class="info" id="loginTime">Login Time: 2024-07-05</div>
+      <div>
+        <input type="button" value="Log Out" class="log-out" onclick="logOut()"/>
+      </div>
+    </div>
+
+    <script src="/javascripts/main.js"></script>
+  </body>
+</html>

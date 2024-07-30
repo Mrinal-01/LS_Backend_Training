@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="inner-box" id="card">
+                <div class="card-front">
+                    <div class="heading"><h2>LOG IN</h2></div>
+                    <div id="message"></div>
+                    <form onsubmit="return loginValidation(event)" >
+                        <input type="email" class="input-box" id="email" placeholder="Enter Your Email" required>
+                       <div style="position: relative;">
+                            <input type="password" class="input-box" id="password" placeholder="Enter Your Password" required>
+                            <img src="/images/CloseEye.png" alt="Closed Eye" srcset="" onclick="togglePasswordVisibility()" id="password-hidden" >
+                       </div>
+                            <!-- This is for testing for diff dates -->
+                            <!-- <input type="date" id="login-date"> -->
+                            <button type="submit" class="submit-btn">Submit</button>
+                            
+                            <p id="loginError" class="error"></p>
+
+                            <!-- <input type="checkbox" name="" ><span>Remember Me</span> -->
+                    </form>
+
+                    <button type="button" class="btn" onclick="openRegister()">I don't have account</button>
+                    <a href="./ForgetPassword.html" target="_self">Forget Password</a>
+                </div>
+                
+                <div class="card-back">
+                    <div class="heading"><h2>Register</h2></div>
+                    <div id="message-reg" ></div>
+                    <div id="success" ></div>
+                    <form onsubmit="return doRegister(event)" id="registerForm">
+                        <input type="text" class="input-box" id="regname" placeholder="Enter Your Full Name" required>
+                        
+                        <input type="email" class="input-box" id="regemail" placeholder="Enter Your Email" required>
+                        <!-- <div id="message"></div> -->
+                       <div style="position: relative;">
+                        <input type="password" class="input-box" id="regpassword"  placeholder="Enter Your Password" required>
+                        <img src="/images/CloseEye.png" alt="Closed Eye" srcset="" onclick="resPasswordVisibility()" id="res-password-hidden" >
+                       </div>
+                        <label for="checkadmin">IsAdmin</label>
+                        <input type="checkbox" name="" id="checkadmin"  value="admin">
+
+                        <input type="text" class="input-box" id="imgurl" placeholder="Enter Image URL" required>
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <!-- <input type="checkbox" name="" ><span>Remember Me</span> -->
+                        
+                    </form>
+                    <button type="button" class="btn" onclick="openLogin()">I have an account</button>
+
+                    
+
+                    <!-- <a href="">Forget Password</a> -->
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/script.js"></script>
+</body>
+</html>

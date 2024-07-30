@@ -1,0 +1,33 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* background-color: rgb(152, 227, 227); */
+}
+
+.show-head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+  
+}
+.show-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.show-head img{
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

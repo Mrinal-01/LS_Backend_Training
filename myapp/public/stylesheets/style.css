@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+    background:url(/images/Developer.jpg);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card{
+    width: 350px;
+    height: 80vh;
+    box-shadow: 0 0 40px 20px rgb(73, 73, 77);
+    perspective: 1000px;
+    
+}
+h2{
+    color: rgb(180, 225, 227);
+    border: 2px solid;
+    text-shadow:
+    0 0 7px #d2aed3,
+    0 0 10px #ffffff,
+    0 0 21px #bea3be,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+    border-radius: 1px;
+
+}
+
+
+
+.inner-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    
+}
+.is-admin{
+    line-height: 10px;
+}
+.card-front, .card-back{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(101, 101, 113, 0.8),rgba(207, 215, 222, 0.8)),url(Images/loginback1.jpg);
+    padding: 55px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    /* border-radius: 10px; */
+}
+.card-back{
+    transform: rotateY(180deg);
+}
+.card h2{
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input-box{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: #fff;
+}
+::placeholder{
+    color: #fff;
+    font-size: 12px;
+}
+button{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 35px 0 10px;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+.submit-btn{
+    position: relative;
+}
+
+#password-hidden{
+    position: absolute;
+    width: 20px;
+    height:20px ;
+    top: 25% ;
+    right: 10px;
+    cursor: pointer;
+
+    
+}
+#res-password-hidden{
+    position: absolute;
+    width: 20px;
+    height:20px ;
+    top: 25% ;
+    right: 10px;
+    cursor: pointer;
+
+    
+}
+#message{
+    color: darkred;
+}
+#message-reg{
+    color: darkred;
+}
+#success{
+    color:rgb(71, 228, 71);
+}
+.submit-btn::after{
+    content: '\27a4';
+    color: #333;
+    line-height: 32px;
+    font-size: 17px;
+    height: 30px;
+    width: 30px;
+    border-radius: 60%;
+    background: #aeccda;
+    position:absolute;
+    right: 0.8px;
+    top: 0.5px;
+}
+
+
+
+span{
+    font-size: 13px;
+    margin-left: 10px;
+}
+.card .btn{
+    margin-top:50px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.show-password{
+    background-image: url("./Images/OpenEye.png");
+}
+
+#login-date{
+    color: #fff;
+    width: 240px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border-color:#fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
