@@ -61,6 +61,7 @@ button{
     height: 60px;
     border: 1px solid white;
     border-radius: 5px;
+    cursor: pointer;
 }
 #showTime{
     width: 150px;

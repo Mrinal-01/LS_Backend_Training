@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const User = require("../models/user")
+
 
 /* GET home page. */
-router.get('/user', function(req, res, next) {
+router.get('/user/', function(req, res, next) {
   const {
     email,name
   } =req.query
@@ -16,12 +18,17 @@ router.get('/details', function(req, res, next) {
 });
 
 
-router.get('/login',(req,res)=>{
+router.get('/login', (req,res)=>{
   res.render('login')
 })
 router.get('/ma',(req,res)=>{
-  console.log("This is main");
-  res.render('main',{username:"Mrinal Bera",email:'mbera829@gmail.com',image:"/images/ProfilePic.jpeg"})
+  // const data = req.body
+  // console.log("This is main", data);
+  // if (data.work !== undefined || data.work === "Done") {
+  //   console.log("Work Done")
+  // }
+  // return res.status(200).json({username:"Mrinal Bera",email:'mbera829@gmail.co',image:"/images/ProfilePic.jpeg"})
+  res.render('main',{username:"Mrinal Bera",email:'mbera829@gmail.co',image:"/images/ProfilePic.jpeg"})
 })
 router.get('/ronaldo',(req,res)=>{
   res.render('ronaldo')
@@ -42,5 +49,7 @@ router.post('/',function(req,res){
   console.log(req.body);
   res.json({error:false,userdata: req.body})
 })
+
+
 
 module.exports = router;
