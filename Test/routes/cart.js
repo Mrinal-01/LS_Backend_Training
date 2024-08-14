@@ -1,11 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const User=require("../models/user.js")
 const Cart = require("../models/cart.js");
-const Product = require("../models/Product");
+const Product = require("../models/product.js");
 const { default: mongoose } = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { jwtAuthMiddleware} = require("../jwt");
+
 // 1st we need userId,productId and also check if the product already available or not
 // Add product to cart
-router.post("/add/to-cart", async (req, res) => {
+router.post("/add/to-cart",jwtAuthMiddleware, async (req, res) => {
+  console.log("Inside add to cart");
+  
   const { productId, quantity, userId } = req.body;
   try {
     let cart = await Cart.findOne({ _userId: userId }).exec(); //find in the Cart schema if cart for the particular user available or not
@@ -162,18 +169,25 @@ router.post("/:userId/remove", async (req, res) => {
 // Get cart for a user
 router.get("/:userId", async (req, res) => {
   try {
-    const cart = await Cart.findOne({ _userId: req.params.userId });
+    const cart = await Cart.findOne({ _userId: req.params.userId }).populate('_userId','name')
+    .populate('productDetails._product','name').exec();
 
     if (!cart) {
       return res.status(404).send({ message: "Cart not found" });
     }
-
-    const cartItems = await CartItem.find({ _cartId: cart._id }).populate({
-      path: "productId",
-      select: {},
-    });
-
-    res.status(200).send({ cart, cartItems });
+    const response={
+      userId:cart._userId.id,
+      name:cart._userId.name,
+      products:cart.productDetails.map(e=>({
+        ProductName:e._product.name,
+        Price: e.sellingPrice,
+        Quantity:e.quantity
+      })),
+      TotalPrice:cart.totalPrice
+    }
+    console.log(response);
+    
+    res.status(200).send({ response});
   } catch (error) {
     res.status(400).send(error);
   }

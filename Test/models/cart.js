@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-
+const Product=require('./product')
 
 const CartSchema = new mongoose.Schema({
   _userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
