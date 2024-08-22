@@ -6,19 +6,17 @@ const mailer = require("../../lib/mail")
 
 const UserSchema = new mongoose.Schema({
 
-  username: { 
-    type: String,
-    unique: true
-  },
-
   password: {
     type: String,
     required: true
   },
+  name: {
+    firstName: String,
 
-  firstName: String,
+    lastName: String,
+  },
 
-  lastName: String,
+ 
 
   email: {
     type: String,
@@ -26,33 +24,39 @@ const UserSchema = new mongoose.Schema({
     unique: true,
   },
 
-  accountType: {
-    type: String,
-    enum: ["google", "email", "fb"],
-    default: "email"
-  },
+  // accountType: {
+  //   type: String,
+  //   enum: ["google", "email", "fb"],
+  //   default: "email"
+  // },
 
-  socialId: String,
+  // socialId: String,
 
   phone: {
     type: String
   },
-
-  gender: {
-    type: String,
-    enum: ["Male", "Female", "Other"],
+  image: {
+    type: String
   },
-
+  // gender: {
+  //   type: String,
+  //   enum: ["Male", "Female", "Other"],
+  // },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   isActive: {
     type: Boolean,
     default: false
   },
+  
 
-  forgotpassword: {
-    requestedAt: { type: Date, default: null },
-    token: { type: String, default: null },
-    expiresAt: { type: Date, default: null }
-  }
+  // forgotpassword: {
+  //   requestedAt: { type: Date, default: null },
+  //   token: { type: String, default: null },
+  //   expiresAt: { type: Date, default: null }
+  // }
 })
 
 
@@ -101,12 +105,8 @@ UserSchema.post("save", function (doc) {
 })
 
 UserSchema.virtual("name.full").get(function () {
-  const first = (this.name.first === undefined || this.name.first === null)
-    ? ""
-    : this.name.first
-  const last = (this.name.last === undefined || this.name.last === null)
-    ? ""
-    : ` ${this.name.last}`
+  const first = (this.name.firstName === undefined || this.name.firstName === null) ? "": this.name.firstName
+  const last = (this.name.lastName === undefined || this.name.lastName === null) ? "" : ` ${this.name.lastName}`
   return `${first}${last}`
 })
 
