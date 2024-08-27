@@ -14,7 +14,7 @@ module.exports = async (agenda) => {
 
 
     await agenda.cancel({name:"delayed job"})
-    await agenda.create("delayed job").schedule("10 seconds").save()
+    await agenda.create("delayed job").schedule("10 hours").save()
 
     async function listJobs() {
       const jobs = await agenda.jobs({});

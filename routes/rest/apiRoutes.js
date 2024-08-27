@@ -1,6 +1,12 @@
+const express = require('express');
 const axios = require("axios");
 const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
+const bodyParser = require('body-parser');
+const moment=require('moment')
+
+const app = express();
+app.use(bodyParser.json());
 
 module.exports = {
   async fetchFakeApi(req, res) {
@@ -84,4 +90,80 @@ module.exports = {
       res.status(400).json({ error: true, message: error.message });
     }
   },
+
+  async facbookLogin(req,res){
+    const APP_ID = '1040856910719272';
+    const APP_SECRET = '236732a2eebb2f3ef4528b1111cd4d7e';
+
+    try {
+      const { access_token } = req.body;
+      if (!access_token) {
+          return res.status(400).json({ error: 'Access token is required' });
+      }
+
+      // Validate the token with Facebook
+      const response = await axios.get(`https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${access_token}`);
+      const { id, name,email } = response.data;
+      const picture = response.data.picture.data.url;
+      const user =await User.findOne({ email: email }).exec();
+      if (user === undefined)
+        throw new Error("User not registered! Plz register first.");
+
+      
+
+      const payload = {
+        
+        _id: user._id,
+        socialId:id,
+        socialImage:picture,
+        fullName: user.name.full,
+        email: user.email,
+        phone: user.phone,
+        isAdmin: user.isAdmin,
+      };
+
+
+      // Generate JWT token
+      const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 3600 * 24 * 30 });
+
+      
+
+      // Return the JWT token and user details
+      return res.json({
+          token,
+          user: {
+              name,
+              email,
+              picture
+          }
+      });
+  } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Failed to authenticate with Facebook' });
+  }
+  },
+
+
+async momentTest(req,res){
+    try {
+      let now=moment().toString()
+      console.log(now);
+    
+      let specificDate = moment("2024-08-23");
+      console.log(specificDate);
+
+      var a = moment.locale("en");
+         var c = moment().format("LLLL");
+      console.log(c);
+      
+      
+      
+
+      res.status(200).json({Success:"Check console plz"})
+    } catch (error) {
+      res.status(400).json({error:true,message:error.message})
+    }
+}
+
+
 };

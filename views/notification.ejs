@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "4a0b991c-c656-4041-a9bd-92e4f0cc1457",
+      safari_web_id: "web.onesignal.auto.4787ada6-f101-40da-894e-0a68fad84e0f",
+      notifyButton: {
+        enable: true,
+      },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  });
+</script>
+</head>
+<body>
+  
+</body>
+</html>
