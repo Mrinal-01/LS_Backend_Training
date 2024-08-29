@@ -38,10 +38,10 @@ const UserSchema = new mongoose.Schema({
   image: {
     type: String
   },
-  // gender: {
-  //   type: String,
-  //   enum: ["Male", "Female", "Other"],
-  // },
+  gender: {
+    type: String,
+    enum: ["Male", "Female", "Other"],
+  },
   isAdmin: {
     type: Boolean,
     default: false
@@ -52,11 +52,11 @@ const UserSchema = new mongoose.Schema({
   },
   
 
-  // forgotpassword: {
-  //   requestedAt: { type: Date, default: null },
-  //   token: { type: String, default: null },
-  //   expiresAt: { type: Date, default: null }
-  // }
+  forgotpassword: {
+    requestedAt: { type: Date, default: null },
+    token: { type: String, default: null },
+    expiresAt: { type: Date, default: null }
+  }
 })
 
 

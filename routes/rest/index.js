@@ -37,6 +37,7 @@ router.post('/pushNotification',pushNotification.sendNotification)
 router.get('/subscribe',pushNotification.subscribe)
 
 router.get('/sendMail',sendMail.sendingMail)
+router.post('/send/welcomeMail',sendMail.sendWelcomeMsg)
 
 router.get("/user/:text", users.get)
 
