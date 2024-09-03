@@ -14,6 +14,7 @@ const restaurant = require("./restaurants")
 const apiRoutes=require("./apiRoutes")
 const pushNotification=require('./pushNotification')
 const sendMail=require('./sendMail')
+const stripeRoutes=require('./stripeRoutes')
 
 router.post("/login", login.post) // UNAUTHENTICATED
 router.post("/signup", signup.post) // UNAUTHENTICATED
@@ -39,9 +40,27 @@ router.get('/subscribe',pushNotification.subscribe)
 router.get('/sendMail',sendMail.sendingMail)
 router.post('/send/welcomeMail',sendMail.sendWelcomeMsg)
 
+// Here all the routes are related to stripe payment
+router.post('/api/addCustomer',stripeRoutes.addCustomer)
+router.get('/api/retrieveCustomer/:customerId',stripeRoutes.retrieveCustomer)
+router.post('/api/addCardToCustomer',stripeRoutes.addCardToCustomer)
+router.post('/api/deleteCard/',stripeRoutes.deleteCard)
+router.post('/api/updateDefaultCard/',stripeRoutes.updateDefaultCard)
+router.post('/api/createCharge',stripeRoutes.createCharge)
+router.get('/api/getChargeList/:customerId',stripeRoutes.getChargeList)
+//All are related to create a successful connect account
+router.post('/create-connected-account/',stripeRoutes.createConnectedAccount)
+router.post('/getPaymentLink/',stripeRoutes.getPaymentLink)
+router.get('/return/',stripeRoutes.activateAccount)
+router.get("/reauth", stripeRoutes.reauth);
+//This one for payments in Stripe connect account
+router.post('/create-connected-customer/',stripeRoutes.createConnectedCustomer)
+router.post('/paymentIntent/',stripeRoutes.createPaymentIntent)
+router.post('/confirm-payment/',stripeRoutes.confirmPayment)
+
 router.get("/user/:text", users.get)
 
-router.all("*", checkJwt) // use this auth middleware for ALL subsequent routes
+// router.all("*", checkJwt) // use this auth middleware for ALL subsequent routes
 
 router.get("/user/:id", users.get)
 
